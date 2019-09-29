@@ -17,7 +17,7 @@ So this is pretty simple to understand, right? ... Nope! Not for me as my mistak
 
 So here are some examples:
 
-``` js
+```js
 [1, 2, 3].indexOf(1);
 >> 0
 
@@ -27,7 +27,7 @@ So here are some examples:
 
 but
 
-``` js
+```js
 ['a', 'b', 'c'].indexOf('y');
 >> -1
 ```
@@ -36,14 +36,14 @@ Pretty straight forward, right?
 
 What's about:
 
-``` js
+```js
 [[1]].indexOf([1]);
 >> -1
 ```
 
 ## The misconception
 
-WTF? There is clear evidence that the array ``[1]`` is a child of the array ``[[1]]``,
+WTF? There is clear evidence that the array `[1]` is a child of the array `[[1]]`,
 so it should be _found_ in it, right? Nope! And here comes my misconception:
 
 The phrase _"[...] element can be found [...]"_ translates directly to the [_strict equality
@@ -52,17 +52,17 @@ comparison_](https://www.ecma-international.org/ecma-262/7.0/index.html#sec-stri
 
 So let's see what this is reporting to us:
 
-``` js
-[1] === [1]
->> false
+```js
+;[1] === [1] >> false
 ```
 
 Okay... Why is this? Let's have a look into the [ECMAScript spec](https://www.ecma-international.org/ecma-262/7.0/index.html#sec-strict-equality-comparison):
 
 > The comparison x === y, where x and y are values, produces true or false. Such a comparison is performed as follows: \
->    1. If Type(x) is different from Type(y), return false. \
->    2. If Type(x) is Number, then [...] \
->    3. Return SameValueNonNumber(x, y). \
+>
+> 1.  If Type(x) is different from Type(y), return false. \
+> 2.  If Type(x) is Number, then [...] \
+> 3.  Return SameValueNonNumber(x, y). \
 
 So we are in case 3 here. So what is _SameValueNonNumber_ doing?
 
@@ -72,12 +72,12 @@ So when do two arrays have the same _object value_?
 
 ## What happens under the hood?
 
-Whenever we create a new array using the array literal like ``let myArray = []`` we create a new _instance_ like
-we would do when we would use ``let myArray = new Array()``.
+Whenever we create a new array using the array literal like `let myArray = []` we create a new _instance_ like
+we would do when we would use `let myArray = new Array()`.
 
 So the strict comparison returns true iff two arrays are basically the same instance! So
 
-``` js
+```js
 let myArray = [[1], [2]];
 
 myArray[0] === myArray[0];
@@ -96,4 +96,3 @@ insight.
 Greets,
 
 Andi
-
