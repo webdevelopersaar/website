@@ -3,6 +3,13 @@ import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import { format } from "date-fns"
 
+import {
+  MeetupListWrapper,
+  MeetupListTitle,
+  MainMeetupTitle,
+  List,
+} from "./index.styles"
+
 const MeetupList = ({ title }) => {
   const events = useStaticQuery(graphql`
     query MeetupListQuery {
@@ -25,18 +32,20 @@ const MeetupList = ({ title }) => {
   `)
 
   return (
-    <section>
-      <h1>{title}</h1>
-      <ol>
+    <MeetupListWrapper>
+      <MeetupListTitle>{title}</MeetupListTitle>
+      <List>
         {events.allMeetupEvent.edges.map(edge => {
           const meetup = edge.node
           const meetupDate = new Date(meetup.time)
           return (
             <li>
-              <a href={meetup.link}>{meetup.name}</a>
+              <a href={meetup.link}>
+                <MainMeetupTitle>{meetup.name}</MainMeetupTitle>
+              </a>
               <span>{meetup.yes_rsvp_count}</span>
               <time
-                datetime={`${format(meetupDate, "yyyy-MM-dd")}T${format(
+                dateTime={`${format(meetupDate, "yyyy-MM-dd")}T${format(
                   meetupDate,
                   "HH:mm:ss"
                 )}`}
@@ -46,8 +55,8 @@ const MeetupList = ({ title }) => {
             </li>
           )
         })}
-      </ol>
-    </section>
+      </List>
+    </MeetupListWrapper>
   )
 }
 

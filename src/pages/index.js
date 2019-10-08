@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
+import { Button } from "../components/Button"
 import PageWrapper from "../components/Layout/PageWrapper"
 import Header from "../components/Layout/Header"
 import NextEvent from "../components/MeetupList/NextEvent"
@@ -25,18 +26,21 @@ const HeaderImage = styled.img`
   width: 100%;
   height: auto;
   order: -1;
+  display: none;
   @media (min-width: ${MEDIA_BREAKPOINTS.header}px) {
     order: 0;
     z-index: -1;
     float: right;
+    display: block;
   }
 `
 
 const HeaderText = styled.p`
+  font-size: 1.3rem;
+  display: inline;
   @media (min-width: ${MEDIA_BREAKPOINTS.header}px) {
     max-width: 70%;
   }
-  font-size: 1.3rem;
 `
 
 const IndexPage = ({ data }) => {
@@ -59,15 +63,16 @@ const IndexPage = ({ data }) => {
                 justifyContent: "space-around",
               }}
             >
-              <a href={data.meetupGroup.link} target="_blank">
+              <Button as="a" href={data.meetupGroup.link} target="_blank">
                 Besuche uns auf Meetup
-              </a>
-              <a
+              </Button>
+              <Button
+                as="a"
                 href="https://webdeveloper-slack.herokuapp.com/"
                 target="_blank"
               >
                 Oder auf unserem Slack
-              </a>
+              </Button>
             </div>
           </div>
           <HeaderImage src={data.file.childImageSharp.fixed.src} />

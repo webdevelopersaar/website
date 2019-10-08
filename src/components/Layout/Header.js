@@ -9,9 +9,5 @@ export default styled.header`
   background-size: contain;
   position: relative;
   height: auto;
-  min-height: 200px;
-
-  @media (min-width: 1000px) {
-    min-height: 600px;
-  }
+  margin-bottom: 3rem;
 `

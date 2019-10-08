@@ -3,16 +3,23 @@ import { StaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import { format } from "date-fns"
 
+import {
+  MeetupListWrapper, MeetupListTitle,
+  MainMeetupTitle,
+} from "./index.styles"
+import { CTAButton } from "../Button"
+
 const MeetupList = ({ title }) => {
   return (
-    <section>
-      <h1>{title}</h1>
+    <MeetupListWrapper>
+      <MeetupListTitle>{title}</MeetupListTitle>
       <StaticQuery
         query={graphql`
           query NextEventQuery {
             meetupEvent(status: { eq: "past" }) {
               id
               link
+              name
               venue {
                 city
                 address_1
@@ -26,18 +33,22 @@ const MeetupList = ({ title }) => {
       >
         {data => {
           const event = data.meetupEvent
-          console.table(event)
+          console.log(event)
           return event ? (
             <section>
-              <h2>{event.name}</h2>
+              <MainMeetupTitle>{event.name}</MainMeetupTitle>
               <span>{new Date(event.time).toLocaleString("de-DE")}</span>
               <div dangerouslySetInnerHTML={{ __html: event.description }} />
-              <a href={event.link}>Jetzt anmelden!</a>
+              <CTAButton as="a" href={event.link}>
+                Jetzt anmelden!
+              </CTAButton>
             </section>
-          ) : <p>Bisher wurde kein zukünftiges Event bekannt gegeben.</p>
+          ) : (
+            <p>Bisher wurde kein zukünftiges Event bekannt gegeben.</p>
+          )
         }}
       </StaticQuery>
-    </section>
+    </MeetupListWrapper>
   )
 }
 
