@@ -10,6 +10,7 @@ export const Button = styled.button.attrs(props =>
   border: 1px solid currentColor;
   text-transform: uppercase;
   text-decoration: none;
+  font-size: 0.8rem;
 `
 
 export const CTAButton = styled(Button)`

@@ -9,6 +9,7 @@ import Header from "../components/Layout/Header"
 import NextEvent from "../components/MeetupList/NextEvent"
 import PastEvents from "../components/MeetupList/PastEvents"
 
+import '../main.css';
 const MEDIA_BREAKPOINTS = {
   header: 1500,
 }
