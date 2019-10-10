@@ -9,7 +9,7 @@ import Header from "../components/Layout/Header"
 import NextEvent from "../components/MeetupList/NextEvent"
 import PastEvents from "../components/MeetupList/PastEvents"
 
-import '../main.css';
+import "../main.css"
 const MEDIA_BREAKPOINTS = {
   header: 1500,
 }
@@ -23,24 +23,54 @@ const HeaderContent = styled.div`
   }
 `
 
+const HeaderContentInfo = styled.div`
+  flex: 1;
+  min-width: 70%;
+`
+
 const HeaderImage = styled.img`
   width: 100%;
   height: auto;
   order: -1;
   display: none;
+  position: relative;
+
+  @media (min-width: 700px) {
+    display: block;
+    z-index: -1;
+    max-width: 30vw;
+  }
+
   @media (min-width: ${MEDIA_BREAKPOINTS.header}px) {
     order: 0;
-    z-index: -1;
+    max-width: none;
     float: right;
-    display: block;
   }
 `
 
 const HeaderText = styled.p`
   font-size: 1.3rem;
-  display: inline;
-  @media (min-width: ${MEDIA_BREAKPOINTS.header}px) {
-    max-width: 70%;
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+`
+
+const HeaderButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+
+  ${Button} {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  @media (min-width: 500px) {
+    flex-direction: row;
+
+    ${Button} {
+      text-align: left;
+    }
   }
 `
 
@@ -50,20 +80,14 @@ const IndexPage = ({ data }) => {
       <SEO title="Home" />
       <Header>
         <HeaderContent style={{}}>
-          <div>
+          <HeaderContentInfo>
             <h1>WebWorker Saar</h1>
             <HeaderText>
               Die WebWorker Saar sind eine Gruppe von Web-Enthusiasten die sich
               einmal im Monat - jeden ersten Donnerstag - trifft, um über
               aktuelle Themen zu diskutieren.
             </HeaderText>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-around",
-              }}
-            >
+            <HeaderButtonWrapper>
               <Button as="a" href={data.meetupGroup.link} target="_blank">
                 Besuche uns auf Meetup
               </Button>
@@ -74,8 +98,8 @@ const IndexPage = ({ data }) => {
               >
                 Oder auf unserem Slack
               </Button>
-            </div>
-          </div>
+            </HeaderButtonWrapper>
+          </HeaderContentInfo>
           <HeaderImage src={data.file.childImageSharp.fixed.src} />
         </HeaderContent>
       </Header>
