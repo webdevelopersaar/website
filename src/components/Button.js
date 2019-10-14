@@ -17,6 +17,20 @@ export const CTAButton = styled(Button)`
   background-color: ${MEETUP_CI_COLOR};
   border-color: ${MEETUP_CI_COLOR};
   color: white;
+  transition: all 0.4s;
+
+  /* Make CTA button work in <a> context (cf. global styles) */
+  &:visited,
+  &:link {
+    color: white;
+  }
+
+  &:hover,
+  &:focus {
+    color: ${MEETUP_CI_COLOR};
+    background: none;
+    border-color: currentColor;
+  }
 `
 
 export default { Button, CTAButton }

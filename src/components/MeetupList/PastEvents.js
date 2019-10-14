@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import { format } from "date-fns"
@@ -22,7 +23,6 @@ const MeetupList = ({ title }) => {
           node {
             id
             name
-            yes_rsvp_count
             link
             time
           }
@@ -32,7 +32,7 @@ const MeetupList = ({ title }) => {
   `)
 
   return (
-    <MeetupListWrapper>
+    <MeetupListWrapper className="full-width">
       <MeetupListTitle>{title}</MeetupListTitle>
       <List>
         {events.allMeetupEvent.edges.map(edge => {
@@ -43,7 +43,6 @@ const MeetupList = ({ title }) => {
               <a href={meetup.link}>
                 <MainMeetupTitle>{meetup.name}</MainMeetupTitle>
               </a>
-              <span>{meetup.yes_rsvp_count}</span>
               <time
                 dateTime={`${format(meetupDate, "yyyy-MM-dd")}T${format(
                   meetupDate,

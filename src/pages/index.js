@@ -17,6 +17,7 @@ const MEDIA_BREAKPOINTS = {
 const HeaderContent = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center; /* Align cross axis */
   @media (min-width: ${MEDIA_BREAKPOINTS.header}px) {
     flex-direction: row;
     max-width: 50%;

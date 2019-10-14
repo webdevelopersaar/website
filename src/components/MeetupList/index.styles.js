@@ -15,14 +15,18 @@ export const MainMeetupTitle = styled.h3`
 
 export const List = styled.ol`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   list-style: none;
   padding: 0;
-  @supports (display: grid) {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-gap: 1em;
+  
+  @media (min-width: 800px) {
+    flex-direction: row;
+    @supports (display: grid) {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      grid-gap: 1em;
+    }
   }
 `

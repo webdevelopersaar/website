@@ -1,3 +1,9 @@
+/*
+ * CI Colors:
+ * #ECB348, #F06845, #72C2AB
+ *
+ */
+
 *,
 *::before,
 *::after {
@@ -7,6 +13,11 @@
 body,
 html {
   margin: 0;
+}
+
+body {
+  background: linear-gradient(white 50%, #c7e5df);
+  min-height: 100vh;
 }
 
 :root {
@@ -24,4 +35,12 @@ main {
     max-width: 90vw;
     padding: 0;
   }
+}
+
+a, a:link {
+  color: #2A2A2B;
+}
+
+a:hover, a:focus, a:active, a:visited {
+  color: #F06845
 }

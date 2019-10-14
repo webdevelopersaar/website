@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import stroke from "../../images/andiasas.svg"
+import stroke from "../../images/brush.svg"
 export default styled.header`
   display: flex;
   flex-direction: column;
