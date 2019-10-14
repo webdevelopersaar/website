@@ -44,8 +44,8 @@ const HeaderImage = styled.img`
 
   @media (min-width: ${MEDIA_BREAKPOINTS.header}px) {
     order: 0;
-    max-width: none;
     float: right;
+    max-width: 30%; /* Somehow necessary for -webkit browsers to not get the image to max scale */
   }
 `
 
