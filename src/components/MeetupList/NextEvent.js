@@ -16,7 +16,7 @@ const MeetupList = ({ title }) => {
       <StaticQuery
         query={graphql`
           query NextEventQuery {
-            meetupEvent(status: { eq: "past" }) {
+            meetupEvent(status: { eq: "upcoming" }) {
               id
               link
               name
