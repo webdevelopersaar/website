@@ -1,7 +1,15 @@
 import React from "react"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import { format } from "date-fns"
+
+import {
+  MeetupListWrapper,
+  MeetupListTitle,
+  MainMeetupTitle,
+  List,
+} from "./index.styles"
 
 const MeetupList = ({ title }) => {
   const events = useStaticQuery(graphql`
@@ -15,7 +23,6 @@ const MeetupList = ({ title }) => {
           node {
             id
             name
-            yes_rsvp_count
             link
             time
           }
@@ -25,18 +32,19 @@ const MeetupList = ({ title }) => {
   `)
 
   return (
-    <section>
-      <h1>{title}</h1>
-      <ol>
+    <MeetupListWrapper className="full-width">
+      <MeetupListTitle>{title}</MeetupListTitle>
+      <List>
         {events.allMeetupEvent.edges.map(edge => {
           const meetup = edge.node
           const meetupDate = new Date(meetup.time)
           return (
             <li>
-              <a href={meetup.link}>{meetup.name}</a>
-              <span>{meetup.yes_rsvp_count}</span>
+              <a href={meetup.link}>
+                <MainMeetupTitle>{meetup.name}</MainMeetupTitle>
+              </a>
               <time
-                datetime={`${format(meetupDate, "yyyy-MM-dd")}T${format(
+                dateTime={`${format(meetupDate, "yyyy-MM-dd")}T${format(
                   meetupDate,
                   "HH:mm:ss"
                 )}`}
@@ -46,8 +54,8 @@ const MeetupList = ({ title }) => {
             </li>
           )
         })}
-      </ol>
-    </section>
+      </List>
+    </MeetupListWrapper>
   )
 }
 
