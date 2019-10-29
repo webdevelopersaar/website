@@ -3,7 +3,7 @@ module.exports = {
     title: `WebWorker Saar`,
     description: `WebWorker Saar Meetup`,
     author: `@andi1984`,
-    siteUrl: `https://www.example.com`,
+    siteUrl: `https://webworker-saar.de`,
   },
   plugins: [
     `gatsby-plugin-webpack-bundle-analyzer`,
@@ -56,7 +56,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "Gatsby RSS Feed",
+            title: "WebWorker Saar | RSS Feed",
           },
         ],
       },
@@ -79,7 +79,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
     {

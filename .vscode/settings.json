@@ -4,8 +4,18 @@
         "[Bluloco Light Italic]": {
             "editor.background": "#ffffff"
         },
-        "activityBar.background": "#1D3312",
-        "titleBar.activeBackground": "#28471A",
-        "titleBar.activeForeground": "#F6FBF4"
-    }
+        "activityBar.background": "#1f3213",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#3d64a2",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "titleBar.activeBackground": "#080d05",
+        "titleBar.inactiveBackground": "#080d0599",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveForeground": "#e7e7e799",
+        "statusBar.background": "#080d05",
+        "statusBarItem.hoverBackground": "#1f3213",
+        "statusBar.foreground": "#e7e7e7"
+    },
+    "peacock.color": "#080d05"
 }

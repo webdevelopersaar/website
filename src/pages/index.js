@@ -1,11 +1,11 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import styled from "styled-components"
-import Img from "gatsby-image"
 import SEO from "../components/seo"
 import { Button } from "../components/Button"
 import PageWrapper from "../components/Layout/PageWrapper"
 import Header from "../components/Layout/Header"
+import Footer from "../components/Layout/Footer"
 import NextEvent from "../components/MeetupList/NextEvent"
 import PastEvents from "../components/MeetupList/PastEvents"
 
@@ -109,6 +109,16 @@ const IndexPage = ({ data }) => {
       ))} */}
       <NextEvent title="Nächstes Event" />
       <PastEvents title="Vergangene Events" />
+      <Footer>
+        <ul>
+          <li>
+            <Link to="/datenschutz">Datenschutz</Link>
+          </li>
+          <li>
+            <Link to="/impressum">Impressum</Link>
+          </li>
+        </ul>
+      </Footer>
     </PageWrapper>
   )
 }
