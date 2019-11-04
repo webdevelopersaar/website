@@ -8,6 +8,7 @@ import PageWrapper from "../components/Layout/PageWrapper"
 import Header from "../components/Layout/Header"
 import NextEvent from "../components/MeetupList/NextEvent"
 import PastEvents from "../components/MeetupList/PastEvents"
+import Footer from "../components/Layout/Footer"
 
 import "../main.css"
 const MEDIA_BREAKPOINTS = {
@@ -109,6 +110,7 @@ const IndexPage = ({ data }) => {
       ))} */}
       <NextEvent title="Nächstes Event" />
       <PastEvents title="Vergangene Events" />
+      <Footer />
     </PageWrapper>
   )
 }
