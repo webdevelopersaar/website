@@ -94,7 +94,7 @@ const IndexPage = ({ data }) => {
               </Button>
               <Button
                 as="a"
-                href="https://webdeveloper-slack.herokuapp.com/"
+                href="https://join.slack.com/t/webdevelopersaar/shared_invite/zt-1uutm1bv8-1rECm7V65AnXlHn5k0NUlA"
                 target="_blank"
               >
                 Oder auf unserem Slack
